@@ -1,0 +1,57 @@
+class TripMate:
+    def __init__(self):
+        self.destinations = []
+
+    def add_destination(self, place, days, budget):
+        trip = {
+            "place": place,
+            "days": days,
+            "budget": budget
+        }
+        self.destinations.append(trip)
+        print(f"✅ Added trip to {place}")
+
+    def show_trips(self):
+        if not self.destinations:
+            print("No trips planned yet.")
+            return
+        
+        print("\n📍 Your Planned Trips:")
+        for i, trip in enumerate(self.destinations, 1):
+            print(f"{i}. {trip['place']} - {trip['days']} days - ₹{trip['budget']}")
+
+    def total_budget(self):
+        total = sum(trip['budget'] for trip in self.destinations)
+        print(f"\n💰 Total Budget: ₹{total}")
+
+
+# ---- Main Program ----
+trip_mate = TripMate()
+
+while True:
+    print("\n--- Trip Mate Menu ---")
+    print("1. Add Trip")
+    print("2. View Trips")
+    print("3. Show Total Budget")
+    print("4. Exit")
+
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        place = input("Enter destination: ")
+        days = int(input("Enter number of days: "))
+        budget = float(input("Enter budget (₹): "))
+        trip_mate.add_destination(place, days, budget)
+
+    elif choice == "2":
+        trip_mate.show_trips()
+
+    elif choice == "3":
+        trip_mate.total_budget()
+
+    elif choice == "4":
+        print("👋 Goodbye! Happy travels!")
+        break
+
+    else:
+        print("❌ Invalid choice, try again.")
