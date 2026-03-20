@@ -1,0 +1,18 @@
+public class Destination {
+    private String name;
+    private String date;
+    private String notes;
+
+    public Destination(String name, String date, String notes) {
+        this.name = name;
+        this.date = date;
+        this.notes = notes;
+    }
+
+    public void display() {
+        System.out.println("Place: " + name);
+        System.out.println("Date: " + date);
+        System.out.println("Notes: " + notes);
+        System.out.println("----------------------");
+    }
+}
