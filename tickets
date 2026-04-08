@@ -1,0 +1,12 @@
+class tickets
+tickets = 5
+
+name = input("Enter your name: ")
+num = int(input("How many tickets: "))
+
+if num <= tickets:
+    print("Booking successful")
+    tickets = tickets - num
+    print("Tickets left:", tickets)
+else:
+    print("Not enough tickets")
